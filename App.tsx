@@ -10,6 +10,8 @@ import {
     TextInput,
 } from 'react-native-paper';
 
+import TripForm from './components/TripForm';
+
 const theme = {
     ...DefaultTheme,
     colors: {
@@ -52,14 +54,14 @@ function InnerApp() {
         <NavigationContainer>
             <Nav.Navigator screenOptions={getScreenOptions}>
                 <Nav.Screen
-                    name="other"
-                    component={StatusBarTogglerView}
-                    options={{title: 'Toinen juttu'}}
-                />
-                <Nav.Screen
                     name="home"
                     component={ButtonOnlyView}
                     options={{title: 'Aloitusruutu'}}
+                />
+                <Nav.Screen
+                    name="other"
+                    component={TripForm}
+                    options={{title: 'Uusi matka'}}
                 />
             </Nav.Navigator>
         </NavigationContainer>
@@ -70,23 +72,23 @@ function ButtonOnlyView({navigation}) {
     return (
         <View>
             <Button onPress={() => navigation.navigate('other')}>
-                Avaa juttu
+                Syötä matka
             </Button>
         </View>
     );
 }
 
-function StatusBarTogglerView() {
-    return (
-        <View style={styles.container}>
-            <StatusBar {...styles.statusBar} />
-            <View style={styles.buttonsContainer}>
-                <TextInput label="Ajon kuvaus" />
-                <Button mode='contained'>Aloita ajo</Button>
-            </View>
-        </View>
-    );
-}
+// function StatusBarTogglerView() {
+//     return (
+//         <View style={styles.container}>
+//             <StatusBar {...styles.statusBar} />
+//             <View style={styles.buttonsContainer}>
+//                 <TextInput label="Ajon kuvaus" />
+//                 <Button mode='contained'>Aloita ajo</Button>
+//             </View>
+//         </View>
+//     );
+// }
 
 const styles = StyleSheet.create({
     container: {
