@@ -2,12 +2,11 @@ import Ionicons from '@expo/vector-icons/Ionicons';
 import {createBottomTabNavigator} from '@react-navigation/bottom-tabs';
 import {NavigationContainer} from '@react-navigation/native';
 import * as React from 'react';
-import {StatusBar, StatusBarStyle, StyleSheet, View} from 'react-native';
+import {View} from 'react-native';
 import {
     Button,
     MD3LightTheme as DefaultTheme,
-    PaperProvider,
-    TextInput,
+    PaperProvider,    
 } from 'react-native-paper';
 
 import TripForm from './components/TripForm';
@@ -78,38 +77,38 @@ function ButtonOnlyView({navigation}) {
     );
 }
 
-// function StatusBarTogglerView() {
-//     return (
-//         <View style={styles.container}>
-//             <StatusBar {...styles.statusBar} />
-//             <View style={styles.buttonsContainer}>
-//                 <TextInput label="Ajon kuvaus" />
-//                 <Button mode='contained'>Aloita ajo</Button>
-//             </View>
-//         </View>
-//     );
-// }
+// // function StatusBarTogglerView() {
+// //     return (
+// //         <View style={styles.container}>
+// //             <StatusBar {...styles.statusBar} />
+// //             <View style={styles.buttonsContainer}>
+// //                 <TextInput label="Ajon kuvaus" />
+// //                 <Button mode='contained'>Aloita ajo</Button>
+// //             </View>
+// //         </View>
+// //     );
+// // }
 
-const styles = StyleSheet.create({
-    container: {
-        flex: 1,
-        justifyContent: 'center',
-        backgroundColor: '#ffe0e0',
-    },
-    statusBar: {
-        animated: true,
-        backgroundColor: '#f080a0',
-        barStyle: 'default' as StatusBarStyle,
-    },
-    textInput: {
-        paddingTop: 10,
-        paddingBottom: 10,
-    },
-    buttonsContainer: {
-        padding: 10,
-    },
-    textStyle: {
-        textAlign: 'center',
-        marginBottom: 8,
-    },
-});
+// const styles = StyleSheet.create({
+//     container: {
+//         flex: 1,
+//         justifyContent: 'center',
+//         backgroundColor: '#ffe0e0',
+//     },
+//     statusBar: {
+//         animated: true,
+//         backgroundColor: '#f080a0',
+//         barStyle: 'default' as StatusBarStyle,
+//     },
+//     textInput: {
+//         paddingTop: 10,
+//         paddingBottom: 10,
+//     },
+//     buttonsContainer: {
+//         padding: 10,
+//     },
+//     textStyle: {
+//         textAlign: 'center',
+//         marginBottom: 8,
+//     },
+// });
