@@ -9,6 +9,7 @@ import {
     PaperProvider,    
 } from 'react-native-paper';
 
+import TripList from './components/TripList';
 import TripForm from './components/TripForm';
 
 const theme = {
@@ -25,6 +26,7 @@ const Nav = createBottomTabNavigator();
 const tabIcons = {
     home: ['ios-home', 'ios-home-outline'],
     other: ['ios-car', 'ios-car-outline'],
+    passengers: ['ios-person', 'ios-person-outline']
 };
 
 const getScreenOptions = ({route}) => ({
@@ -62,6 +64,11 @@ function InnerApp() {
                     component={TripForm}
                     options={{title: 'Uusi matka'}}
                 />
+                <Nav.Screen
+                    name="passengers"
+                    component={TripList}
+                    options={{title: 'Matkustajat'}}
+                />
             </Nav.Navigator>
         </NavigationContainer>
     );
@@ -76,39 +83,3 @@ function ButtonOnlyView({navigation}) {
         </View>
     );
 }
-
-// // function StatusBarTogglerView() {
-// //     return (
-// //         <View style={styles.container}>
-// //             <StatusBar {...styles.statusBar} />
-// //             <View style={styles.buttonsContainer}>
-// //                 <TextInput label="Ajon kuvaus" />
-// //                 <Button mode='contained'>Aloita ajo</Button>
-// //             </View>
-// //         </View>
-// //     );
-// // }
-
-// const styles = StyleSheet.create({
-//     container: {
-//         flex: 1,
-//         justifyContent: 'center',
-//         backgroundColor: '#ffe0e0',
-//     },
-//     statusBar: {
-//         animated: true,
-//         backgroundColor: '#f080a0',
-//         barStyle: 'default' as StatusBarStyle,
-//     },
-//     textInput: {
-//         paddingTop: 10,
-//         paddingBottom: 10,
-//     },
-//     buttonsContainer: {
-//         padding: 10,
-//     },
-//     textStyle: {
-//         textAlign: 'center',
-//         marginBottom: 8,
-//     },
-// });
