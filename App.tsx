@@ -51,14 +51,14 @@ export default function App() {
 }
 
 function InnerApp() {
-    return (
+    return (        
         <NavigationContainer>
             <Nav.Navigator screenOptions={getScreenOptions}>
                 <Nav.Screen
                     name="home"
                     component={ButtonOnlyView}
                     options={{title: 'Aloitusruutu'}}
-                />
+                />                
                 <Nav.Screen
                     name="other"
                     component={TripForm}
@@ -73,6 +73,7 @@ function InnerApp() {
         </NavigationContainer>
     );
 }
+
 
 function ButtonOnlyView({navigation}) {
     return (

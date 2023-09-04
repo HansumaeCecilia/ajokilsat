@@ -31,9 +31,13 @@ export default function TripForm({onSubmit, initialValue: iv}: Props) {
     const [routeDescription, setRouteDescription] = useState(
         iv?.routeDescription ?? ''
     );
+    const [passengerName, setPassengerName] = useState(
+        iv?.passengerName ?? ''
+    );
 
     function submitForm() {
         const trip: Trip = {
+            passengerName,
             vehicleId: vehicle,
             description,
             timestampAtBegin,
@@ -55,6 +59,11 @@ export default function TripForm({onSubmit, initialValue: iv}: Props) {
                     {value: 'car1', label: 'Auto 1'},
                     {value: 'car2', label: 'Auto 2'},
                 ]}
+            />
+            <TextInput
+                label="Matkustaja"
+                value={passengerName}
+                onChangeText={setPassengerName}
             />
             <TextInput
                 label="Ajon kuvaus"
