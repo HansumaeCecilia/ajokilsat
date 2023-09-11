@@ -2,13 +2,14 @@ import Ionicons from '@expo/vector-icons/Ionicons';
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 import { NavigationContainer } from '@react-navigation/native';
 import * as React from 'react';
-// import { View } from 'react-native';
+
 import {    
     MD3LightTheme as DefaultTheme,
     PaperProvider,
 } from 'react-native-paper';
 
-import TripForm from './components/TripForm';
+// import TripForm from './components/TripForm';
+import NewTripCreator from './components/NewTripCreator';
 import TripList from './components/TripList';
 
 const theme = {
@@ -58,11 +59,15 @@ function InnerApp() {
                     options={{title: 'Aloitusruutu'}}
                 />
                 <Nav.Screen
-                    name="other"
-                    component={TripForm}
+                    name="newTrip"
+                    component={NewTripScreen}
                     options={{title: 'Uusi matka'}}
                 />
             </Nav.Navigator>
         </NavigationContainer>
     );
+}
+
+function NewTripScreen({navigation}) {
+    return <NewTripCreator onStarted={() => navigation.navigate('home')} />;
 }
