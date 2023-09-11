@@ -1,16 +1,15 @@
 import Ionicons from '@expo/vector-icons/Ionicons';
-import {createBottomTabNavigator} from '@react-navigation/bottom-tabs';
-import {NavigationContainer} from '@react-navigation/native';
+import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
+import { NavigationContainer } from '@react-navigation/native';
 import * as React from 'react';
-import {View} from 'react-native';
-import {
-    Button,
+// import { View } from 'react-native';
+import {    
     MD3LightTheme as DefaultTheme,
-    PaperProvider,    
+    PaperProvider,
 } from 'react-native-paper';
 
-import TripList from './components/TripList';
 import TripForm from './components/TripForm';
+import TripList from './components/TripList';
 
 const theme = {
     ...DefaultTheme,
@@ -25,8 +24,7 @@ const Nav = createBottomTabNavigator();
 
 const tabIcons = {
     home: ['ios-home', 'ios-home-outline'],
-    other: ['ios-car', 'ios-car-outline'],
-    passengers: ['ios-person', 'ios-person-outline']
+    other: ['ios-car', 'ios-car-outline'],    
 };
 
 const getScreenOptions = ({route}) => ({
@@ -51,36 +49,20 @@ export default function App() {
 }
 
 function InnerApp() {
-    return (        
+    return (
         <NavigationContainer>
             <Nav.Navigator screenOptions={getScreenOptions}>
                 <Nav.Screen
                     name="home"
-                    component={ButtonOnlyView}
+                    component={TripList}
                     options={{title: 'Aloitusruutu'}}
-                />                
+                />
                 <Nav.Screen
                     name="other"
                     component={TripForm}
                     options={{title: 'Uusi matka'}}
                 />
-                <Nav.Screen
-                    name="passengers"
-                    component={TripList}
-                    options={{title: 'Matkustajat'}}
-                />
             </Nav.Navigator>
         </NavigationContainer>
-    );
-}
-
-
-function ButtonOnlyView({navigation}) {
-    return (
-        <View>
-            <Button onPress={() => navigation.navigate('other')}>
-                Syötä matka
-            </Button>
-        </View>
     );
 }
